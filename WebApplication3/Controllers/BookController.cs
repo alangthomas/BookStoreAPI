@@ -22,10 +22,16 @@ namespace WebApplication3.Controllers
         [HttpGet]
         public List<Book> Get()
         {
-            return repository.GetAllBooks();
+            return repository.BestSeller();
         }
         [HttpGet]
-        public Book Get(int id)
+        public List<Book> Get(int id)
+        {
+            return repository.GetBookByCatId(id);
+        }
+        [HttpGet]
+        [Route("bookid")]
+        public Book GetBook(int id)
         {
             return repository.GetBookById(id);
         }
